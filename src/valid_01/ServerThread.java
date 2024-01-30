@@ -9,9 +9,11 @@ import java.net.Socket;
 public class ServerThread implements Runnable{
 
 	private final Socket clienteSocket;
+	private final Boolean livre;
 
-    public ServerThread(Socket clienteSocket) {
+    public ServerThread(Socket clienteSocket, Boolean livre) {
         this.clienteSocket = clienteSocket;
+		this.livre = true;
     }
 
     @Override

@@ -8,6 +8,10 @@ public class Server {
 	public static void main(String[] args) {
         int porta = 12345;
 
+        //instanciar os n's core de processamento
+        //fazer com que inicializem com livre true e ao serem utilizado saiam de uma lista de disponíveis
+        //arrayList, quando terminar o processamento voltem para o final da lista.
+        
         try (ServerSocket servidorSocket = new ServerSocket(porta)) {
             System.out.println("Servidor aguardando conexões na porta " + porta);
 
@@ -16,7 +20,7 @@ public class Server {
                 System.out.println("Novo cliente conectado");
 
                 // Cria uma nova thread para lidar com o cliente
-                Thread threadCliente = new Thread(new ServerThread(clienteSocket));
+                Thread threadCliente = new Thread(new ServerThread(clienteSocket, true));
                 threadCliente.start();
             }
 
